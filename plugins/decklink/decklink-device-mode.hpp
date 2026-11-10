@@ -3,14 +3,13 @@
 #include "platform.hpp"
 
 #include <string>
-#include <numeric>
 
 #define MODE_ID_AUTO -1
 
 class DeckLinkDeviceMode {
 protected:
 	long long id;
-	IDeckLinkDisplayMode *mode;
+	ComPtr<IDeckLinkDisplayMode> mode;
 	std::string name;
 
 public:
@@ -28,4 +27,5 @@ public:
 
 	int GetWidth();
 	int GetHeight();
+	bool GetFrameRate(BMDTimeValue *frameDuration, BMDTimeScale *timeScale);
 };
